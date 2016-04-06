@@ -1,0 +1,32 @@
+#!/bin/bash
+
+name=$1
+WEB_ROOT_DIR=$2
+
+email='webmaster@localhost'
+sitesEnable='/etc/apache2/sites-enabled/'
+sitesAvailable='/etc/apache2/sites-available/'
+userDir='/var/www/'
+sitesAvailabledomain=$sitesAvailable$name.conf
+echo "Creating a vhost for $sitesAvailabledomain with a webroot $WEB_ROOT_DIR"
+
+### create virtual host rules file
+echo "
+    <VirtualHost *:80>
+      ServerAdmin $email
+      ServerName $name
+      DocumentRoot $WEB_ROOT_DIR
+      <Directory $WEB_ROOT_DIR/>
+        Options Indexes FollowSymLinks
+        AllowOverride all
+
+      </Directory>
+    </VirtualHost>" > $sitesAvailabledomain
+echo -e $"\nNew Virtual Host Created\n"
+
+sudo sed -i "1s/^/127.0.0.1 $name\n/" /etc/hosts
+
+sudo a2ensite $name
+sudo service apache2 reload
+
+echo "Done, please browse to http://$name to check!"
