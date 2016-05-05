@@ -6,7 +6,6 @@ WEB_ROOT_DIR=$2
 email='webmaster@localhost'
 sitesEnable='/etc/apache2/sites-enabled/'
 sitesAvailable='/etc/apache2/sites-available/'
-userDir='/var/www/'
 sitesAvailabledomain=$sitesAvailable$name.conf
 echo "Creating a vhost for $sitesAvailabledomain with a webroot $WEB_ROOT_DIR"
 
