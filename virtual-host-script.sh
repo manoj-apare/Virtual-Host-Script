@@ -23,9 +23,9 @@ echo "
     </VirtualHost>" > $sitesAvailabledomain
 echo -e $"\nNew Virtual Host Created\n"
 
-sudo sed -i "1s/^/127.0.0.1 $name\n/" /etc/hosts
+sed -i "1s/^/127.0.0.1 $name\n/" /etc/hosts
 
-sudo a2ensite $name
-sudo service apache2 reload
+a2ensite $name
+service apache2 reload
 
 echo "Done, please browse to http://$name to check!"
