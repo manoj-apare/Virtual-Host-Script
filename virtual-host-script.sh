@@ -3,7 +3,7 @@
 name=$1
 WEB_ROOT_DIR=$2
 
-email='webmaster@localhost'
+email=${3-'webmaster@localhost'}
 sitesEnable='/etc/apache2/sites-enabled/'
 sitesAvailable='/etc/apache2/sites-available/'
 sitesAvailabledomain=$sitesAvailable$name.conf
