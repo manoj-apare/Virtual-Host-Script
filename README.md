@@ -4,4 +4,4 @@
 1. Download or clone the script.
 2. Make it executable.
 3. Run the command:
-<pre-formatted>[path-to-script]/virtual-host-script.sh [domain-name] [full-path-to-webroot] </pre-formatted>
+<pre-formatted>sudo [path-to-script]/virtual-host-script.sh [domain-name] [full-path-to-webroot] </pre-formatted>
